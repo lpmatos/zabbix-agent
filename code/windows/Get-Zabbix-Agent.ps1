@@ -36,8 +36,8 @@ $TempConfigDir         = Join-Path $TempDir "conf"
 $Is64bit = (Get-WmiObject -Class Win32_OperatingSystem | Select-Object OSArchitecture) -match "64"
 $Service = Get-WmiObject -Class Win32_Service -Filter "Name=`'$ServiceName`'"
 
-$ZabbixHost="woopi-bastion"
-$ZabbixServer="172.168.32.3"
+$ZabbixHost="woopi-sophie-storage"
+$ZabbixServer="172.31.21.35"
 
 # ******************************************************************************
 # FUNCTIONS
