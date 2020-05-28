@@ -164,7 +164,7 @@ Function Get-Install {
       Start-Process $ZabbixAgentExe $Arguments
     }
     Log("Starting Service...")
-    Start-Service -Name $Title
+    Start-Service -Name $ServiceName
   } catch {
     Write-Error "Error when we install Zabbix Agent... Bye Bye :)"
     Exit
