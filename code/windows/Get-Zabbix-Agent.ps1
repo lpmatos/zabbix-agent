@@ -157,6 +157,14 @@ Function Get-Install {
     Test-Directory-Exist
     Get-Zabbix-Agent-ZipFile
     Remove-Item -Recurse -Force $TempDir
+    $ZabbixAgentExe = Join-Path $BinDir "zabbix_agentd.exe"
+    $Arguments = "-i -c $ConfigDir"
+    If (!($service)) {
+      Log("Starting Process...")
+      Start-Process $ZabbixAgentExe $Arguments
+    }
+    Log("Starting Service...")
+    Start-Service -Name $Title
   } catch {
     Write-Error "Error when we install Zabbix Agent... Bye Bye :)"
     Exit
